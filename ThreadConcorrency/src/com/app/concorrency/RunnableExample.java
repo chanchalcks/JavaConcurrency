@@ -32,7 +32,7 @@ public class RunnableExample {
 		t1.join();
 		System.out.println("Task finished");
 		
-		// using join so thread can finish the task first then thread and main thread can execute
+		// using join so t1 thread can finish the task first then thread and main thread can execute concorrently
 		
 	}
 
