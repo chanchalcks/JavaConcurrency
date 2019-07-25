@@ -22,10 +22,18 @@ class Runner2 implements Runnable {
 }
 
 public class RunnableExample {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 
-		new Thread(new Runner1()).start();
-		new Thread(new Runner2()).start();
+		Thread t1 = new Thread(new Runner1());
+		t1.start();
+		Thread t2 = new Thread(new Runner2());
+		t2.start();
+		
+		t1.join();
+		System.out.println("Task finished");
+		
+		// using join so thread can finish the task first then thread and main thread can execute
+		
 	}
 
 }
