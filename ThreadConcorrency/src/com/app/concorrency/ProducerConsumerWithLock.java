@@ -1,14 +1,15 @@
 package com.app.concorrency;
+
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+
 class Worker {
 	private Lock lock = new ReentrantLock();
 	Condition condition = lock.newCondition();
 
 	public void consumer() throws InterruptedException {
 
-		
 		lock.lock();
 		System.out.println("this is consumer");
 		condition.signal();
@@ -23,7 +24,7 @@ class Worker {
 		condition.await();
 		System.out.println("producer again");
 		lock.unlock();
-		
+
 	}
 
 }
